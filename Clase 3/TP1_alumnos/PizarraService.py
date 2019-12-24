@@ -66,6 +66,7 @@ class Main:
         while True:
             (data, addr) = s.recvfrom(128*1024)
             data = Parser.parseData(data)
+            print(type(data))
             self.model.updateData(data)
             self.view.show()
             s.sendto(bytearray("OK","utf-8"),addr)
